@@ -1,0 +1,16 @@
+<form [formGroup]='todoForm' (ngSubmit)="addTodo()">
+    <h1 mat-dialog-title>Add Todo</h1>
+    <div mat-dialog-content>
+        <p>To-do Details</p>
+        <mat-form-field>
+            <input matInput placeholder="Tilte" formControlName="title" autofocus>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Description" formControlName="description">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button type="submit">Ok</button>
+    </div>
+</form>
