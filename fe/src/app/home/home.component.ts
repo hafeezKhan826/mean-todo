@@ -51,8 +51,8 @@ export class HomeComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.animal = result;
+      this.getTodos();
     });
   }
 
@@ -105,7 +105,9 @@ export class AddToDoModal {
         status: 'active'
       }
       this.service.addTodo(payload).subscribe((result: any) => {
-        console.log({ result })
+        if (result.status === 'success') {
+          this.dialogRef.close();
+        }
       })
     }
   }
